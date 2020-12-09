@@ -1,6 +1,5 @@
 import React from "react";
 import background from "../assets/videos/background.mp4";
-import "../index.scss";
 
 export const BackgroundVideoComponent = () => {
   const videoSource = background;
