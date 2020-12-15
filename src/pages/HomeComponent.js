@@ -8,18 +8,20 @@ import dataService from "../services/data.service";
 
 export const HomeComponent = () => {
   const [data, setData] = useState([]);
+
   const {getAll} = dataService;
-  getAll("/character")
+
+  /*  getAll("/character")
     .then((r) => {
       setData(r.data.docs);
     })
-    .catch((error) => console.error(error));
+    .catch((error) => console.error(error)); */
 
-  const [{showSidebar}, setSidebarState] = useState({showSidebar: true});
+  const [{showSidebar}, setSidebarState] = useState({showSidebar: false});
 
   return (
     <>
-      <BackgroundVideoComponent></BackgroundVideoComponent>
+      <BackgroundVideoComponent />
       {showSidebar ? (
         <div className="animate__animated animate__fadeInLeft">
           <SidebarComponent
@@ -29,14 +31,17 @@ export const HomeComponent = () => {
           ></SidebarComponent>
         </div>
       ) : (
-        <SidebarButtonComponent
-          setSidebarState={setSidebarState}
-          showSidebar={showSidebar}
-        ></SidebarButtonComponent>
+        <div>
+          <SidebarButtonComponent
+            className="animate__animated animate__fadeInRight"
+            setSidebarState={setSidebarState}
+            showSidebar={showSidebar}
+          ></SidebarButtonComponent>
+        </div>
       )}
       {data.forEach((c) => (
         <h1>{c.name}</h1>
-      ))}
+      ))}{" "}
     </>
   );
 };

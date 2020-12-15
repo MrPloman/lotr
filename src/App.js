@@ -1,10 +1,14 @@
 import "./App.css";
-import {HomeComponent} from "./pages/HomeComponent";
+import {RouterComponent} from "./components/RouterComponent";
+import {library} from "@fortawesome/fontawesome-svg-core";
+import {faStroopwafel} from "@fortawesome/free-solid-svg-icons";
+
+library.add(faStroopwafel);
 
 function App() {
   return (
     <>
-      <HomeComponent></HomeComponent>
+      <RouterComponent></RouterComponent>
     </>
   );
 }

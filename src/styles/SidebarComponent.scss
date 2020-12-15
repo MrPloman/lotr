@@ -3,7 +3,8 @@
   width: 400px;
   height: 100vh;
   display: flex;
-  background-color: black;
+
+  background-color: rgb(5, 5, 5);
   flex-direction: column;
   &-top {
     display: flex;
@@ -12,13 +13,30 @@
     color: white;
     &-arrow {
       color: white;
-      width: 30px;
-      height: 30px;
-      background-color: rgba(255, 255, 255, 0.699);
-      border-radius: 20px;
-      padding: 2px;
+      font-size: 50px;
       margin: 10px 0 0 10px;
       cursor: pointer;
     }
   }
+}
+.options {
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+h3 {
+  overflow: hidden;
+  -webkit-text-stroke: 1px white;
+  display: inline-block;
+  padding: 10px;
+  font-weight: bold;
+  font-family: arial;
+  color: transparent;
+  font-size: 100px;
+}
+span {
+  background: url("../assets/imgs/stars.jpg") -20px -20px repeat;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  display: block;
 }
