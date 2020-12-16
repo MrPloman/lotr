@@ -9,34 +9,35 @@
   &-top {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: flex-end;
     color: white;
     &-arrow {
+      font-size: 60px;
       color: white;
       font-size: 50px;
       margin: 10px 0 0 10px;
       cursor: pointer;
     }
   }
-}
-.options {
-  -webkit-background-clip: text;
-
-  -webkit-text-fill-color: transparent;
-}
-h3 {
-  overflow: hidden;
-  -webkit-text-stroke: 1px white;
-  display: inline-block;
-  padding: 10px;
-  font-weight: bold;
-  font-family: arial;
-  color: transparent;
-  font-size: 100px;
-}
-span {
-  background: url("../assets/imgs/stars.jpg") -20px -20px repeat;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  display: block;
+  &-middle {
+    display: flex;
+    flex-direction: column;
+    &-link {
+      text-decoration: none;
+      h3 {
+        -webkit-text-stroke: 1px rgb(255, 255, 255);
+        font-weight: bold;
+        font-family: arial;
+        font-size: 60px;
+        color: rgb(0, 0, 0);
+        margin: 0;
+        transition: 0.5s;
+      }
+      h3:hover {
+        color: rgb(255, 255, 255);
+        transition: 0.5s;
+        -webkit-text-stroke: 1px rgb(0, 0, 0);
+      }
+    }
+  }
 }

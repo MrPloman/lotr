@@ -4,7 +4,10 @@ import "../styles/SidebarButtonComponent.scss";
 import {faAlignJustify} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-export const SidebarButtonComponent = ({setSidebarState, showSidebar}) => {
+export const SidebarButtonComponent = ({
+  setSidebarState,
+  updateSidebarState,
+}) => {
   const sidebarIcon = sidebar;
   return (
     <>
@@ -12,7 +15,7 @@ export const SidebarButtonComponent = ({setSidebarState, showSidebar}) => {
         icon={faAlignJustify}
         className="sidebar-button"
         onClick={() => {
-          setSidebarState({showSidebar: true});
+          updateSidebarState(true);
         }}
       />
     </>

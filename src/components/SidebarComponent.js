@@ -1,47 +1,49 @@
-import React from "react";
+import React, {useState} from "react";
 import "../styles/SidebarComponent.scss";
-import arrowback from "../assets/icons/arrow-back.png";
-import {Link, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+import {useTranslation} from "react-i18next";
 
-export const SidebarComponent = ({showSidebar, setSidebarState}) => {
-  console.log(showSidebar);
-  const arrowBack = arrowback;
+export const SidebarComponent = ({showSidebar, updateSidebarState}) => {
+  const {t} = useTranslation();
+  const navbar = [
+    {
+      name: "HOME",
+      to: "/home",
+    },
+    {
+      name: "CHARACTERS",
+      to: "/characters",
+    },
+  ];
+
+  const [navbarState, setNavbar] = useState(navbar);
+  console.log(navbarState);
 
   return (
     <>
       <div className="sidebar">
         <div className="sidebar-top">
           <FontAwesomeIcon
-            onClick={() => setSidebarState({showSidebar: false})}
+            onClick={() => updateSidebarState(false)}
             className="sidebar-top-arrow"
             icon={faArrowLeft}
           />
         </div>
-        <div>
-          <ul>
-            <li>
+        <div className="sidebar-middle">
+          {navbarState.map((n) => {
+            return (
               <NavLink
-                className="clip-text clip-text_fifteen clip-text--no-textzone"
-                to="/home"
+                key={n.name}
+                className="sidebar-middle-link"
+                exact
+                to={n.to}
               >
-                <h3>
-                  <span> Home</span>
-                </h3>
+                <h3>{t(n.name)}</h3>
               </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className="clip-text clip-text_fifteen clip-text--no-textzone"
-                to="/characters"
-              >
-                <h3>
-                  <span> Characters</span>
-                </h3>
-              </NavLink>
-            </li>
-          </ul>
+            );
+          })}
         </div>
       </div>
     </>

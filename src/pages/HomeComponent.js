@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {BackgroundVideoComponent} from "../components/BackgroundVideoComponent";
 import {SidebarButtonComponent} from "../components/SidebarButtonComponent";
 import "../styles/HomeComponent.scss";
-
+import {useStateSidebar} from "../hooks/useStateSidebar";
 import {SidebarComponent} from "../components/SidebarComponent";
 import dataService from "../services/data.service";
 
@@ -16,32 +16,29 @@ export const HomeComponent = () => {
       setData(r.data.docs);
     })
     .catch((error) => console.error(error)); */
-
-  const [{showSidebar}, setSidebarState] = useState({showSidebar: false});
-
+  const {sidebarState, updateSidebarState} = useStateSidebar(false);
   return (
     <>
-      <BackgroundVideoComponent />
-      {showSidebar ? (
-        <div className="animate__animated animate__fadeInLeft">
-          <SidebarComponent
-            key="sidebar"
-            showSidebar={showSidebar}
-            setSidebarState={setSidebarState}
-          ></SidebarComponent>
-        </div>
-      ) : (
-        <div>
-          <SidebarButtonComponent
-            className="animate__animated animate__fadeInRight"
-            setSidebarState={setSidebarState}
-            showSidebar={showSidebar}
-          ></SidebarButtonComponent>
-        </div>
-      )}
-      {data.forEach((c) => (
-        <h1>{c.name}</h1>
-      ))}{" "}
+      <div className="animate__animated animate__fadeIn">
+        <BackgroundVideoComponent />
+        {sidebarState.showSidebar ? (
+          <div className="animate__animated animate__fadeInLeft">
+            <SidebarComponent
+              key="sidebar"
+              showSidebar={sidebarState}
+              updateSidebarState={updateSidebarState}
+            ></SidebarComponent>
+          </div>
+        ) : (
+          <div>
+            <SidebarButtonComponent
+              className="animate__animated animate__fadeInRight"
+              setSidebarState={sidebarState}
+              updateSidebarState={updateSidebarState}
+            ></SidebarButtonComponent>
+          </div>
+        )}
+      </div>
     </>
   );
 };
