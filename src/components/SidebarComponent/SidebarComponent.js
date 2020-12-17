@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "../styles/SidebarComponent.scss";
+import "./SidebarComponent.scss";
 import {NavLink} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
@@ -36,11 +36,12 @@ export const SidebarComponent = ({showSidebar, updateSidebarState}) => {
             return (
               <NavLink
                 key={n.name}
+                activeClassName="sidebar-middle-link-active"
                 className="sidebar-middle-link"
                 exact
                 to={n.to}
               >
-                <h3>{t(n.name)}</h3>
+                {t(n.name)}
               </NavLink>
             );
           })}

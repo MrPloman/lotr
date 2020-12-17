@@ -1,6 +1,6 @@
 import React from "react";
-import sidebar from "../assets/icons/sidebar.png";
-import "../styles/SidebarButtonComponent.scss";
+import sidebar from "../../assets/icons/sidebar.png";
+import "./SidebarButtonComponent.scss";
 import {faAlignJustify} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 

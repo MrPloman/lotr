@@ -24,20 +24,24 @@
     flex-direction: column;
     &-link {
       text-decoration: none;
-      h3 {
-        -webkit-text-stroke: 1px rgb(255, 255, 255);
-        font-weight: bold;
-        font-family: arial;
-        font-size: 60px;
-        color: rgb(0, 0, 0);
-        margin: 0;
-        transition: 0.5s;
-      }
-      h3:hover {
+      -webkit-text-stroke: 1px rgb(255, 255, 255);
+      font-weight: bold;
+      font-family: arial;
+      font-size: 60px;
+      color: rgb(0, 0, 0);
+      margin: 0;
+      transition: 0.5s;
+      &-active {
         color: rgb(255, 255, 255);
         transition: 0.5s;
         -webkit-text-stroke: 1px rgb(0, 0, 0);
       }
+    }
+    &-link:hover {
+      text-decoration: none;
+      color: rgb(255, 255, 255);
+      transition: 0.5s;
+      -webkit-text-stroke: 1px rgb(0, 0, 0);
     }
   }
 }

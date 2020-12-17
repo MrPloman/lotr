@@ -1,5 +1,5 @@
 import "./App.css";
-import {RouterComponent} from "./components/RouterComponent";
+import {RouterComponent} from "./components//RouterComponent/RouterComponent";
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {faStroopwafel} from "@fortawesome/free-solid-svg-icons";
 import {withTranslation} from "react-i18next";

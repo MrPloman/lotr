@@ -1,8 +1,8 @@
 import React from "react";
-import back from "../assets/videos/background.mp4";
-import nature from "../assets/videos/nature.mp4";
+import back from "../../assets/videos/background.mp4";
+import nature from "../../assets/videos/nature.mp4";
 import {useLocation} from "react-router-dom";
-import "../styles/BackgroundVideoComponent.scss";
+import "./BackgroundVideoComponent.scss";
 
 export const BackgroundVideoComponent = () => {
   const loca = useLocation();
