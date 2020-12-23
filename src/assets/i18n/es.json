@@ -1,1 +1,19 @@
-{"HOME": "Home", "CHARACTERS": "Personajes"}
+{
+  "HOME": "Home",
+  "CHARACTERS": "Personajes",
+  "RACE": "Raza",
+  "BIRTH": "Nacimiento",
+  "DEATH": "Muerte",
+  "GENDER": "Género",
+  "MALE": "Hombre",
+  "FEMALE": "Mujer",
+  "NAME": "Nombre",
+  "REALM": "Reino",
+  "SPOUSE": "Esposado/a",
+  "HUMAN": "Humano",
+  "ELF": "Elfo",
+  "ORCH": "Orco",
+  "HOBBIT": "Hobbit",
+  "DWARF": "Enano",
+  "MORE_INFO": "Más Info"
+}

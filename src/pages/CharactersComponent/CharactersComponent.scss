@@ -3,12 +3,21 @@
   height: 100vh;
   display: flex;
   flex-direction: row;
-  z-index: 100;
+
   &-main {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    &-list {
+    }
   }
+}
+.animate__animated.animate__fadeInLeft {
+  --animate-duration: 0.1s;
+}
+.animate__animated.animate__fadeOutLeft {
+  --animate-duration: 0.5s;
 }

@@ -1,1 +1,19 @@
-{"HOME": "Home", "CHARACTERS": "Characters"}
+{
+  "HOME": "Home",
+  "CHARACTERS": "Characters",
+  "RACE": "Race",
+  "BIRTH": "Birth",
+  "DEATH": "Death",
+  "GENDER": "Gender",
+  "MALE": "Male",
+  "FEMALE": "Female",
+  "NAME": "Name",
+  "REALM": "Realm",
+  "SPOUSE": "Spouse",
+  "HUMAN": "Human",
+  "ELF": "Elf",
+  "ORCH": "Orch",
+  "HOBBIT": "Hobbit",
+  "DWARF": "Dwarf",
+  "MORE_INFO": "More Info"
+}

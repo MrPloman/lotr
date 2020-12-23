@@ -1,0 +1,14 @@
+.button-content {
+  width: 100px;
+  height: 50px;
+  background-color: black;
+  border: 1px white solid;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin: 0 auto;
+  cursor: pointer;
+  z-index: 10;
+}

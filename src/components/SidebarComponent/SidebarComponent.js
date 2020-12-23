@@ -23,28 +23,30 @@ export const SidebarComponent = ({showSidebar, updateSidebarState}) => {
 
   return (
     <>
-      <div className="sidebar">
-        <div className="sidebar-top">
-          <FontAwesomeIcon
-            onClick={() => updateSidebarState(false)}
-            className="sidebar-top-arrow"
-            icon={faArrowLeft}
-          />
-        </div>
-        <div className="sidebar-middle">
-          {navbarState.map((n) => {
-            return (
-              <NavLink
-                key={n.name}
-                activeClassName="sidebar-middle-link-active"
-                className="sidebar-middle-link"
-                exact
-                to={n.to}
-              >
-                {t(n.name)}
-              </NavLink>
-            );
-          })}
+      <div className="content">
+        <div className="sidebar">
+          <div className="sidebar-top">
+            <FontAwesomeIcon
+              onClick={() => updateSidebarState(false)}
+              className="sidebar-top-arrow"
+              icon={faArrowLeft}
+            />
+          </div>
+          <div className="sidebar-middle">
+            {navbarState.map((n) => {
+              return (
+                <NavLink
+                  key={n.name}
+                  activeClassName="sidebar-middle-link-active"
+                  className="sidebar-middle-link"
+                  exact
+                  to={n.to}
+                >
+                  {t(n.name)}
+                </NavLink>
+              );
+            })}
+          </div>
         </div>
       </div>
     </>
