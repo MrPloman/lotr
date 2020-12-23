@@ -1,24 +1,30 @@
-import React from "react";
+import React, {useReducer, useCallback} from "react";
 import {BackgroundVideoComponent} from "../../components/BackgroundVideoComponent/BackgroundVideoComponent";
 import {SidebarButtonComponent} from "../../components/SidebarButtonComponent/SidebarButtonComponent";
 import {SidebarComponent} from "../../components/SidebarComponent/SidebarComponent";
 import {useStateSidebar} from "../../hooks/useStateSidebar";
 import "./CharactersComponent.scss";
-import dataService from "../../services/data.service";
+
 import {ListComponent} from "../../components/ListComponent/ListComponent";
 import {SearchComponent} from "../../components/SearchComponent/SearchComponent";
 import {PaginationComponent} from "../../components/PaginationComponent/PaginationComponent";
+import {listElementsReducer} from "../../reducers/listElementsReducer";
+import {charactersSelector} from "../../selectors/charactersSelector";
 
 export const CharactersComponent = () => {
   const {sidebarState, updateSidebarState} = useStateSidebar(false);
+  const [characters, dispatch] = useReducer(listElementsReducer, []);
+  let page = 1;
 
-  const {getAll} = dataService;
+  const getChars = () => {
+    charactersSelector({limit: 6, page: page}).then((r) => {
+      r.state === "success" ? dispatch(r.action) : console.log(r.error);
+    });
+  };
 
-  getAll("/character?limit=10?page=2")
-    .then((r) => {
-      console.log(r);
-    })
-    .catch((error) => console.error(error));
+  const refreshList = () => {
+    getChars();
+  };
 
   return (
     <>
@@ -42,17 +48,26 @@ export const CharactersComponent = () => {
               ></SidebarButtonComponent>
             </div>
           )}
-          <div className="content-main">
-            <div className="content-main-searcher">
-              <SearchComponent />
+          {characters !== undefined && (
+            <div className="content-main">
+              <div className="content-main-searcher">
+                <SearchComponent />
+              </div>
+              <div className="content-main-list">
+                <ListComponent elements={characters.docs} />
+              </div>
+              <div className="content-main-pagination">
+                <PaginationComponent />
+              </div>
+              <button
+                onClick={() => {
+                  refreshList();
+                }}
+              >
+                REFRESH
+              </button>
             </div>
-            <div className="content-main-list">
-              <ListComponent />
-            </div>
-            <div className="content-main-pagination">
-              <PaginationComponent />
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </>

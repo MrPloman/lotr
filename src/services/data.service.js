@@ -1,7 +1,7 @@
 import http from "../helpers/http-common";
 
 class DataService {
-  getAll(endpoint) {
+  async getAll(endpoint) {
     return http.get(endpoint);
   }
 
